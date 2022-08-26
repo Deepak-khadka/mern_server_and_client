@@ -1,19 +1,25 @@
-const express = require("express");
+import express from "express";
+import mongoose from "mongoose";
+import UserModel from "./models/Users.js";
+import dotenv from "dotenv";
+import cors from "cors";
+import CategoryRoute from "./Routes/category.js";
+
 const app = express();
-const mongoose = require("mongoose");
-const UserModel = require("./models/Users");
-const dotenv = require("dotenv");
 
 dotenv.config();
 
-const cors = require("cors");
 app.use(express.json());
 app.use(cors());
 
 const mongoUrl = process.env.MONGODB;
 
-mongoose.connect(mongoUrl);
+mongoose.connect(mongoUrl, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
 
+// This is for the user list
 app.get("/getUsers", (req, res) => {
   UserModel.find({}, (err, result) => {
     if (err) {
@@ -31,6 +37,11 @@ app.post("/createUser", async (req, res) => {
 
   res.json(user);
 });
+
+// End of the user routing list
+
+// Category Route list is binding in CategoryRoute
+app.use("/api/category", CategoryRoute);
 
 const port = process.env.PORT;
 
