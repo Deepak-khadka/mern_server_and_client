@@ -22,7 +22,7 @@ function App() {
         username: username,
       })
       .then((response) => {
-        setListOfUsers([...listOfUsers, { name, age, username }]);
+        setListOfUsers([{ name, age, username }, ...listOfUsers]);
         setName("");
         setAge(0);
         setUsername("");
@@ -61,10 +61,11 @@ function App() {
       <div className="usersDisplay">
         {listOfUsers.map((user) => {
           return (
-            <div>
+            <div className="row">
               <h1> Name : {user.name} </h1>
-              <h3> Age : {user.age} </h3>
-              <h3> Username: {user.username}</h3>
+              <h5> Age : {user.age} </h5>
+              <label> Username: {user.username}</label>
+              <hr></hr>
             </div>
           );
         })}

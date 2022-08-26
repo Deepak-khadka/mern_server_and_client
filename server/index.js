@@ -21,7 +21,7 @@ app.get("/getUsers", (req, res) => {
     } else {
       res.json(result);
     }
-  });
+  }).sort({ name: -1 });
 });
 
 app.post("/createUser", async (req, res) => {
