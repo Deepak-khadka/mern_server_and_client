@@ -1,7 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import axios from "axios";
-
+import { SERVER_URL } from "../../component/common";
 const User = () => {
   const [listOfUsers, setListOfUsers] = useState([]);
   const [name, setName] = useState("");
@@ -9,14 +9,14 @@ const User = () => {
   const [username, setUsername] = useState("");
 
   useEffect(() => {
-    axios.get("http://localhost:3001/getUsers").then((response) => {
+    axios.get(`${SERVER_URL}/getUsers`).then((response) => {
       setListOfUsers(response.data);
     });
   }, []);
 
   const createUser = () => {
     axios
-      .post("http://localhost:3001/createUser", {
+      .post(`${SERVER_URL}/createUser`, {
         name: name,
         age: age,
         username: username,
