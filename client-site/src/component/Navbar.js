@@ -8,7 +8,7 @@ const Navbar = () => {
           MERN TUTORIAL
         </Link>
         <button
-          class="navbar-toggler"
+          className="navbar-toggler"
           type="button"
           data-toggle="collapse"
           data-target="#navbarNavDropdown"
@@ -16,18 +16,18 @@ const Navbar = () => {
           aria-expanded="false"
           aria-label="Toggle navigation"
         >
-          <span class="navbar-toggler-icon"></span>
+          <span className="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarNavDropdown">
-          <ul class="navbar-nav">
-            <li class="nav-item active"></li>
-            <li class="nav-item">
-              <Link class="nav-link" to={"/user"}>
+        <div className="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul className="navbar-nav">
+            <li className="nav-item active"></li>
+            <li className="nav-item">
+              <Link className="nav-link" to={"/user"}>
                 User
               </Link>
             </li>
-            <li class="nav-item">
-              <Link class="nav-link" to={"/category"}>
+            <li className="nav-item">
+              <Link className="nav-link" to={"/category"}>
                 Category
               </Link>
             </li>

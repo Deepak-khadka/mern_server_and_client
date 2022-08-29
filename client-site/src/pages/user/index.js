@@ -2,6 +2,8 @@ import React from "react";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { SERVER_URL } from "../../component/common";
+import {Link} from "react-router-dom";
+
 const User = () => {
   const [listOfUsers, setListOfUsers] = useState([]);
   const [name, setName] = useState("");
@@ -34,6 +36,7 @@ const User = () => {
       <div className="userForm">
         <input
           type="text"
+          className="form-control col-4"
           placeholder="Name..."
           onChange={(event) => {
             setName(event.target.value);
@@ -42,6 +45,7 @@ const User = () => {
         />
         <input
           type="number"
+          className="form-control"
           placeholder="Age..."
           onChange={(event) => {
             setAge(event.target.value);
@@ -50,25 +54,51 @@ const User = () => {
         />
         <input
           type="text"
+          className="form-control"
           placeholder="Username..."
           onChange={(event) => {
             setUsername(event.target.value);
           }}
           value={username}
         />
-        <button onClick={createUser}>Create User</button>
+        <button className="btn btn-sm btn-primary" onClick={createUser}>Create User</button>
       </div>
+
+
       <div className="usersDisplay">
-        {listOfUsers.map((user) => {
-          return (
-            <div className="row">
-              <h1> Name : {user.name} </h1>
-              <h5> Age : {user.age} </h5>
-              <label> Username: {user.username}</label>
-              <hr></hr>
-            </div>
-          );
-        })}
+
+          <table className="table table-hover">
+              <thead>
+              <tr>
+                  <th scope="col">S.N</th>
+                  <th scope="col">Name</th>
+                  <th scope="col">Age</th>
+                  <th scope="col">User Name</th>
+                  <th scope="col">Action</th>
+              </tr>
+              </thead>
+              <tbody>
+              {listOfUsers.map((user, index) => {
+                  return (
+
+                      <tr key={index}>
+                          <th scope="row">{ ++index }</th>
+                          <td>{user.name}</td>
+                          <td>{user.age}</td>
+                          <td>{user.username}</td>
+                          <td>
+                              <Link to={`/user/${user._id}/show`}>Show</Link>
+                              |  <Link to={`/user/${user._id}/edit`}>Edit</Link>
+                              |  <Link to={`/user/${user._id}/delete`}>Delete</Link>
+                          </td>
+                      </tr>
+                  );
+              })}
+
+
+              </tbody>
+          </table>
+
       </div>
     </>
   );

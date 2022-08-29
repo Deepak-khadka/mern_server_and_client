@@ -22,6 +22,20 @@ const Category = () => {
   }, []);
   return (
     <>
+
+      <div className="row">
+        <div className="col-6">
+          <div className="mb-3">
+            <label htmlFor="exampleFormControlInput1" className="form-label">Email address</label>
+            <input type="email" className="form-control" id="exampleFormControlInput1" placeholder="name@example.com" />
+          </div>
+          <div className="mb-3">
+            <label htmlFor="exampleFormControlTextarea1" className="form-label">Example textarea</label>
+            <textarea className="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+          </div>
+        </div>
+      </div>
+
       <div className="categoryForm">
         <form>
           <h3>Category Form</h3>
@@ -66,9 +80,10 @@ const Category = () => {
                 </div>
 
                 <div className="card-body">
-                  <span>Slug : {category.slug}</span>
+                  <span>Slug : {category.slug} </span>
+                  <br/>
                   <span>
-                    Is Parent :{" "}
+                     Is Parent :{" "}
                     {category.is_parent === true ? "Parent" : "Child"}
                   </span>
                 </div>
