@@ -4,6 +4,7 @@ import UserModel from "./models/Users.js";
 import dotenv from "dotenv";
 import cors from "cors";
 import CategoryRoute from "./Routes/category.js";
+import UserRoute from "./Routes/user.js";
 
 const app = express();
 
@@ -38,6 +39,7 @@ app.post("/createUser", async (req, res) => {
   res.json(user);
 });
 
+app.use("/api/user", UserRoute);
 // End of the user routing list
 
 // Category Route list is binding in CategoryRoute
