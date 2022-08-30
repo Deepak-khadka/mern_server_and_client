@@ -25,7 +25,7 @@ const showUser = () => {
                 <div className="card-header">
 
                     <div className="pull-right">
-                        <Link to="/user" className="btn btn-sm  btn-primary">Go Back</Link>
+                        <Link to="/user" className="btn btn-sm btn-primary">Go Back</Link>
                     </div>
 
                     <div className="pull-left">
