@@ -8,6 +8,7 @@ import User from "./pages/user";
 import Home from "./pages/Home";
 import Category from "./pages/category";
 import EditUser from "./pages/user/edit";
+import ShowUser from "./pages/user/show";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route path="/user" element={<User />} />
           <Route path="/category" element={<Category />} />
           <Route path="/user/:_id/edit" element={ <EditUser /> } />
+          <Route path="/user/:_id/show" element={ <ShowUser /> } />
         </Routes>
       </div>
     </div>
