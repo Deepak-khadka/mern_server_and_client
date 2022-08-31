@@ -1,25 +1,15 @@
 import mongoose from "mongoose";
 
-const CategorySchema = new mongoose.Schema({
-  name: {
-    type: String,
-    required: true,
+const CategorySchema = new mongoose.Schema(
+  {
+    name: { type: String, required: true },
+    slug: { type: String, required: true },
+    is_parent: { type: Boolean, required: true, default: false },
   },
-  slug: {
-    type: String,
-    required: true,
-  },
-  is_parent: {
-    type: Boolean,
-    required: true,
-    default: false,
-  },
-  created_at: {
-    type: Date,
-    required: false,
-    default: Date.toLocaleString(),
-  },
-});
+  {
+    timestamps: true,
+  }
+);
 
-const CategoryModel = mongoose.model("category", CategorySchema);
+const CategoryModel = mongoose.model("Category", CategorySchema);
 export default CategoryModel;

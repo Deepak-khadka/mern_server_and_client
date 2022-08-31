@@ -5,6 +5,7 @@ import dotenv from "dotenv";
 import cors from "cors";
 import CategoryRoute from "./Routes/category.js";
 import UserRoute from "./Routes/user.js";
+import seedRouter from "./Routes/seedRoutes.js";
 
 const app = express();
 
@@ -19,6 +20,8 @@ mongoose.connect(mongoUrl, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
+/** Use this /seed route to seed the Model Data which is listed in Data component */
+app.use("/seed", seedRouter);
 
 // This is for the user list
 app.get("/getUsers", (req, res) => {
